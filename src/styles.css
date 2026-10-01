@@ -1,0 +1,168 @@
+const navItems = ['Work', 'Services', 'Process', 'Contact'];
+
+const stats = [
+  { label: 'Projects launched', value: '24+' },
+  { label: 'Brand systems built', value: '11' },
+  { label: 'Avg. launch speed', value: '3x' },
+];
+
+const features = [
+  {
+    title: 'AI-first product design',
+    description:
+      'Translating complex technologies into tactile, high-converting experiences that look premium and feel immediate.',
+  },
+  {
+    title: 'Architected brand systems',
+    description:
+      'From identity to interface motion, I shape visual languages that hold across product, campaign, and culture.',
+  },
+  {
+    title: 'Launch-ready execution',
+    description:
+      'Fast-moving strategy, engineering alignment, and narrative-led design that turns intention into momentum.',
+  },
+];
+
+const projects = [
+  { name: 'Nebula Commerce', phase: 'Luxury e-commerce', accent: 'violet' },
+  { name: 'Signal Atelier', phase: 'Creative systems', accent: 'cyan' },
+  { name: 'Afterglow Labs', phase: 'Brand strategy', accent: 'gold' },
+];
+
+export default function App() {
+  return (
+    <div className="app-shell">
+      <div className="bg-grid" aria-hidden="true" />
+      <div className="bg-noise" aria-hidden="true" />
+
+      <header className="topbar wrap">
+        <div className="brand-mark" aria-label="Alien Event Horizon home">
+          <span className="brand-dot" />
+          <span>AEH</span>
+        </div>
+
+        <nav className="nav" aria-label="Main navigation">
+          {navItems.map((item) => (
+            <a key={item} href={`#${item.toLowerCase()}`}>
+              {item}
+            </a>
+          ))}
+        </nav>
+
+        <a className="primary-btn small" href="#contact">
+          Book a call
+        </a>
+      </header>
+
+      <main className="hero wrap">
+        <div className="hero-copy">
+          <div className="eyebrow">Human + machine / signal design</div>
+
+          <h1>
+            <span className="line">Build the</span>
+            <span className="line accent">future</span>
+            <span className="line last">in motion.</span>
+          </h1>
+
+          <p className="lede">
+            I design luxury digital experiences for founders, brands, and institutions who
+            want to feel unmistakably premium — with the speed of a startup and the presence of a
+            world-class studio.
+          </p>
+
+          <div className="cta-row">
+            <a className="primary-btn" href="#work">
+              View projects
+            </a>
+            <a className="secondary-btn" href="#services">
+              Explore services
+            </a>
+          </div>
+
+          <div className="stats" aria-label="Key metrics">
+            {stats.map((stat) => (
+              <div key={stat.label} className="stat-box">
+                <strong>{stat.value}</strong>
+                <span>{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="hero-visual" aria-label="Featured studio visual">
+          <div className="orbit orbit-one" />
+          <div className="orbit orbit-two" />
+          <div className="orb orb-core" />
+
+          <div className="glass-card feature-card">
+            <div className="card-topline">
+              <span className="status-dot" />
+              Live studio signal
+            </div>
+            <h2>Alien Event Horizon</h2>
+            <div className="signal-bar">
+              <span />
+              <span />
+              <span />
+              <span />
+            </div>
+            <div className="mini-grid">
+              <div>
+                <small>Identity</small>
+                <strong>High-end</strong>
+              </div>
+              <div>
+                <small>Motion</small>
+                <strong>Driven</strong>
+              </div>
+              <div>
+                <small>Vibe</small>
+                <strong>Cyberpunk</strong>
+              </div>
+            </div>
+          </div>
+
+          <div className="floating-tag tag-one">Brand</div>
+          <div className="floating-tag tag-two">Experience</div>
+        </div>
+      </main>
+
+      <section className="services wrap" id="services">
+        <div className="section-label">Capabilities</div>
+        <div className="section-head">
+          <h3>Luxury execution for ambitious brands.</h3>
+          <p>
+            I combine strategic clarity with cinematic visuals to shape memorable digital identities.
+          </p>
+        </div>
+
+        <div className="feature-grid">
+          {features.map((feature) => (
+            <article key={feature.title} className="feature-item">
+              <span className="feature-index">0{features.indexOf(feature) + 1}</span>
+              <h4>{feature.title}</h4>
+              <p>{feature.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="showcase wrap" id="work">
+        <div className="section-label">Selected work</div>
+        <div className="showcase-grid">
+          {projects.map((project) => (
+            <article key={project.name} className={`project-card ${project.accent}`}>
+              <div className="project-glow" />
+              <div className="project-meta">
+                <span>{project.phase}</span>
+                <span className="arrow">↗</span>
+              </div>
+              <h4>{project.name}</h4>
+            </article>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
